@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="./dist/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+<body>
+    <!-- HI CRUST BALL :) -->
+    <div class="wrapper move-area">
+        <div id="leanne" class="droppable">
+            <div class='eye'></div>
+            <div class='eye'></div>
+        </div>
+        <!-- <img id="leanne" class="droppable" src="/dist/img/leanneshead.png" alt=""> -->
+
+    </div>
+
+    <div class="eggs">
+        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball" class="draggable eggs_egg js-egg">
+        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball2" class="draggable eggs_egg js-egg">
+        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball3" class="draggable eggs_egg js-egg">
+        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball4" class="draggable eggs_egg js-egg">
+        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball5" class="draggable eggs_egg js-egg">
+        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball6" class="draggable eggs_egg js-egg">
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="./dist/js/main.min.js"></script>
+
+    <script type="text/javascript">
+        $('.js-egg').each(function(index) {
+            $(this).css({
+                left: Math.random() * ($('.wrapper').width() - $(this).width()),
+                top: Math.random() * ($('.wrapper').height() - $(this).height())
+            });
+        });
+
+        $(".move-area").mousemove(function(event) {
+            var eye = $(".eye");
+            var x = (eye.offset().left) + (eye.width() / 2);
+            var y = (eye.offset().top) + (eye.height() / 2);
+            var rad = Math.atan2(event.pageX - x, event.pageY - y);
+            var rot = (rad * (180 / Math.PI) * -1) + 180;
+            eye.css({
+                '-webkit-transform': 'rotate(' + rot + 'deg)',
+                '-moz-transform': 'rotate(' + rot + 'deg)',
+                '-ms-transform': 'rotate(' + rot + 'deg)',
+                'transform': 'rotate(' + rot + 'deg)'
+            });
+        });
+
+
+
+        $(function() {
+
+            var functions = [
+
+                function fibsh() {
+                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                    // audio.play();
+                },
+
+                function degg() {
+                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                    // audio.play();
+                },
+
+                function ahh() {
+                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                    // audio.play();
+                },
+
+                function murph() {
+                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                    // audio.play();
+                }
+            ];
+
+            var i = -1;
+
+            $(".draggable").draggable();
+
+            $('#leanne').droppable({
+                over: function(event, ui) {
+                    // $("#leanne").css('background', 'pink');
+                },
+                drop: function(event, ui) {
+                    setTimeout(function() {
+                        if ($('.js-egg').length) {
+                            // alert('still eggs');
+                        } else {
+                            $('#leanne').toggle('explode');
+                            // alert('no mo egg');
+                        }
+                    }, 500);
+
+
+                    $("#leanne").addClass('animated shake');
+                    $("#leanne").on('animationend', function() {
+                        $(this).removeClass('animated shake');
+                    })
+                    ui.draggable.remove();
+                    if (i < 3) {
+                        functions[++i]();
+                    } else {
+                        functions[0]();
+                        i = 0;
+                    }
+                },
+                out: function(event, ui) {
+
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
