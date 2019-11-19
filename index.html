@@ -10,23 +10,20 @@
 </head>
 
 <body>
+    <button class="reset" style="position: absolute; top: 10px; left: 10px;">MO EGGS</button>
+
     <!-- HI CRUST BALL :) -->
     <div class="wrapper move-area">
+
         <div id="leanne" class="droppable">
             <div class='eye'></div>
             <div class='eye'></div>
         </div>
-        <!-- <img id="leanne" class="droppable" src="/dist/img/leanneshead.png" alt=""> -->
 
     </div>
 
-    <div class="eggs">
-        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball" class="draggable eggs_egg js-egg">
-        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball2" class="draggable eggs_egg js-egg">
-        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball3" class="draggable eggs_egg js-egg">
-        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball4" class="draggable eggs_egg js-egg">
-        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball5" class="draggable eggs_egg js-egg">
-        <img src="http://www.pngmart.com/files/5/Eggs-PNG-Image.png" id="ball6" class="draggable eggs_egg js-egg">
+    <div class="eggs js-eggs">
+
     </div>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -34,12 +31,100 @@
     <script src="./dist/js/main.min.js"></script>
 
     <script type="text/javascript">
-        $('.js-egg').each(function(index) {
-            $(this).css({
-                left: Math.random() * ($('.wrapper').width() - $(this).width()),
-                top: Math.random() * ($('.wrapper').height() - $(this).height())
+        // adds six eggs to the page.
+        function reset() {
+            for (let i = 1; i < 7; i++) {
+                function addElement() {
+                    var egg = document.createElement("img");
+                    egg.setAttribute('id', 'ball' + i);
+                    egg.setAttribute('class', 'draggable eggs_egg js-egg');
+                    egg.setAttribute('src', 'http://www.pngmart.com/files/5/Eggs-PNG-Image.png');
+                    $(".js-eggs").append(egg);
+                }
+                addElement();
+
+            }
+
+            $('.js-egg').each(function(index) {
+                $(this).css({
+                    left: Math.random() * ($('.wrapper').width() - $(this).width()),
+                    top: Math.random() * ($('.wrapper').height() - $(this).height())
+                });
             });
-        });
+
+
+
+
+
+            $(function() {
+
+                var functions = [
+
+                    function fibsh() {
+                        var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                        // audio.play();
+                    },
+
+                    function degg() {
+                        var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                        // audio.play();
+                    },
+
+                    function ahh() {
+                        var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                        // audio.play();
+                    },
+
+                    function murph() {
+                        var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
+                        // audio.play();
+                    }
+                ];
+
+                var i = -1;
+
+                $(".draggable").draggable();
+
+                $('#leanne').droppable({
+                    over: function(event, ui) {
+                        // $("#leanne").css('background', 'pink');
+                    },
+                    drop: function(event, ui) {
+                        setTimeout(function() {
+                            if ($('.js-egg').length) {
+                                // alert('still eggs');
+                            } else {
+                                $('#leanne').toggle('explode');
+                                // alert('no mo egg');
+                            }
+                        }, 500);
+
+
+                        $("#leanne").addClass('animated shake');
+                        $("#leanne").on('animationend', function() {
+                            $(this).removeClass('animated shake');
+                        })
+                        ui.draggable.remove();
+                        if (i < 3) {
+                            functions[++i]();
+                        } else {
+                            functions[0]();
+                            i = 0;
+                        }
+                    },
+                    out: function(event, ui) {
+
+                    }
+                });
+            });
+
+            //Put leanne back together again
+            if ($('#leanne').css('display') == 'none') {
+                $('#leanne').css('display', 'block');
+            }
+        }
+
+        reset();
 
         $(".move-area").mousemove(function(event) {
             var eye = $(".eye");
@@ -56,67 +141,8 @@
         });
 
 
-
-        $(function() {
-
-            var functions = [
-
-                function fibsh() {
-                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
-                    // audio.play();
-                },
-
-                function degg() {
-                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
-                    // audio.play();
-                },
-
-                function ahh() {
-                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
-                    // audio.play();
-                },
-
-                function murph() {
-                    var audio = new Audio('https://freesound.org/data/previews/61/61046_718003-lq.mp3');
-                    // audio.play();
-                }
-            ];
-
-            var i = -1;
-
-            $(".draggable").draggable();
-
-            $('#leanne').droppable({
-                over: function(event, ui) {
-                    // $("#leanne").css('background', 'pink');
-                },
-                drop: function(event, ui) {
-                    setTimeout(function() {
-                        if ($('.js-egg').length) {
-                            // alert('still eggs');
-                        } else {
-                            $('#leanne').toggle('explode');
-                            // alert('no mo egg');
-                        }
-                    }, 500);
-
-
-                    $("#leanne").addClass('animated shake');
-                    $("#leanne").on('animationend', function() {
-                        $(this).removeClass('animated shake');
-                    })
-                    ui.draggable.remove();
-                    if (i < 3) {
-                        functions[++i]();
-                    } else {
-                        functions[0]();
-                        i = 0;
-                    }
-                },
-                out: function(event, ui) {
-
-                }
-            });
+        $('.reset').on('click', function() {
+            reset();
         });
     </script>
 </body>
