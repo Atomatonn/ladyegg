@@ -176,22 +176,28 @@ html {
   #leanne img {
     max-width: 100%; }
 
+.egg-face {
+  width: 100%;
+  height: 100%; }
+
 .eggs {
   position: absolute;
   top: 0;
   filter: drop-shadow(5px 0px 5px rgba(0, 0, 0, 0.5)); }
-  .eggs_egg:nth-child(1) {
-    position: absolute; }
-  .eggs_egg:nth-child(2) {
-    position: absolute; }
-  .eggs_egg:nth-child(3) {
-    position: absolute; }
-  .eggs_egg:nth-child(4) {
-    position: absolute; }
-  .eggs_egg:nth-child(5) {
-    position: absolute; }
-  .eggs_egg:nth-child(6) {
-    position: absolute; }
+  .eggs_egg {
+    width: 80px; }
+    .eggs_egg:nth-child(1) {
+      position: absolute; }
+    .eggs_egg:nth-child(2) {
+      position: absolute; }
+    .eggs_egg:nth-child(3) {
+      position: absolute; }
+    .eggs_egg:nth-child(4) {
+      position: absolute; }
+    .eggs_egg:nth-child(5) {
+      position: absolute; }
+    .eggs_egg:nth-child(6) {
+      position: absolute; }
 
 .draggable {
   cursor: pointer;
