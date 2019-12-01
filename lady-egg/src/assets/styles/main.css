@@ -152,7 +152,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../img/bg.jpg");
+  background-image: url("../../assets/img/bg.jpg");
   background-position: center;
   background-size: cover; }
 
@@ -163,10 +163,10 @@ html {
   height: 520px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("../img/SEALEANNE.png"); }
+  background-image: url("../../assets/img/SEALEANNE.png"); }
   #leanne img {
     max-width: 100%; }
-  #leanne .eye {
+  #leanne .ball {
     position: relative;
     display: inline-block;
     border-radius: 50%;
@@ -174,22 +174,23 @@ html {
     width: 30px;
     background: #f3f3f3;
     top: 143px;
-    left: 93px; }
-    #leanne .eye:nth-child(1) {
+    left: 93px; 
+    }
+    #leanne .ball:nth-child(1) {
       left: 52px; }
-    #leanne .eye:nth-child(2) {
+    #leanne .ball:nth-child(2) {
       left: 110px;
       top: 160px; }
-  #leanne .eye:after {
+
+  #leanne .ball .eye {
     /*pupil*/
     position: absolute;
-    bottom: 17px;
     right: 10px;
     width: 10px;
     height: 10px;
     background: #000;
     border-radius: 50%;
-    content: " "; }
+    }
   #leanne .mouth {
     position: absolute;
     width: 131px;

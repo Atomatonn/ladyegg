@@ -28,9 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/styles/main.css",
+              "node_modules/jquery-ui-dist/jquery-ui.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery.easing/jquery.easing.min.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js"
+            ]
           },
           "configurations": {
             "production": {

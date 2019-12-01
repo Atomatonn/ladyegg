@@ -4,6 +4,7 @@ import { LadysLairComponent } from './ladys-lair/ladys-lair.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
     component: LadysLairComponent
