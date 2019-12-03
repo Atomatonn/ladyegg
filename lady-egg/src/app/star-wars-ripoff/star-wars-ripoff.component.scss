@@ -1,0 +1,52 @@
+.starWarsRipoff {
+ height: 1000px;	
+ overflow: hidden;
+ position: relative;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: black;
+ background-position: center;
+ background-size: cover;
+}
+
+.starWarsRipoff p {
+ font-size: 5em;
+ color: #fdfdfd;
+ position: absolute;
+ width: 100%;
+ height: 3000px;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateY(100%);
+ -webkit-transform:translateY(100%);	
+ transform:translateY(100%);
+ /* Apply animation to this element */	
+ -moz-animation: starWarsRipoff 50s linear infinite;
+ -webkit-animation: starWarsRipoff 50s linear infinite;
+ animation: starWarsRipoff 50s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes starWarsRipoff {
+ 0%   { -moz-transform: translateY(100%); }
+ 100% { -moz-transform: translateY(-100%); }
+}
+@-webkit-keyframes starWarsRipoff {
+ 0%   { -webkit-transform: translateY(100%); }
+ 100% { -webkit-transform: translateY(-100%); }
+}
+@keyframes starWarsRipoff {
+ 0%   { 
+ -moz-transform: translateY(100%); /* Firefox bug fix */
+ -webkit-transform: translateY(100%); /* Firefox bug fix */
+ transform: translateY(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateY(-100%); /* Firefox bug fix */
+ -webkit-transform: translateY(-100%); /* Firefox bug fix */
+ transform: translateY(-100%); 
+ }
+}
