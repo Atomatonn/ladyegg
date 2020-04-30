@@ -9,7 +9,7 @@
     "author": "Adam",
     "license": "ISC",
     "dependencies": {
-        "jquery": "^3.2.1"
+        "jquery": "^3.5.0"
     },
     "devDependencies": {
         "babel-core": "^6.26.3",
